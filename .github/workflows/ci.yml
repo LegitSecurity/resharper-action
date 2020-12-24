@@ -42,7 +42,7 @@ jobs:
     - name: test
       run: |
         docker images
-        echo ${{steps.ttt.outputs}}
+        echo ${{steps.ttt.outputs.digest}}
 
     - name: get sample
       run: git clone https://github.com/aidansteele/demo-serverless-aspnetcore.git
