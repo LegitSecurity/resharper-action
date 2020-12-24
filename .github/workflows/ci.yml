@@ -34,9 +34,12 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: false
-        tags: ${{github.repository}}:1latest
+        tags: ${{github.repository}}:latest
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
+
+    - name: test
+      run: docker images
 
     - name: get sample
       run: git clone https://github.com/aidansteele/demo-serverless-aspnetcore.git

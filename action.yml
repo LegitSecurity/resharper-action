@@ -6,7 +6,7 @@ inputs:
     required: true
 runs:
   using: docker
-  image: docker://legitsecurity/resharper-action
+  image: ghcr.io/legitsecurity/resharper-action
   args:
     - sh
     - -c
