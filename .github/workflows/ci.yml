@@ -35,14 +35,13 @@ jobs:
       id: ttt
       with:
         push: false
-        tags: ${{github.repository}}:latest
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
 
     - name: test
       run: |
         docker images
-        echo ${{steps.ttt.outputs.digest}}
+        echo "Something: ${{steps.ttt.outputs.digest}}"
 
     - name: get sample
       run: git clone https://github.com/aidansteele/demo-serverless-aspnetcore.git
