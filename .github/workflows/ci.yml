@@ -35,7 +35,7 @@ jobs:
       id: ttt
       with:
         load: true
-        tags: ${{github.repository}}:latest
+        tags: legitsecurity/resharper-action:latest
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
 
