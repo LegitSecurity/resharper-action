@@ -15,7 +15,7 @@ RUN apk add unzip
 WORKDIR /resharper
 RUN \
   curl -o resharper.zip -L -J "https://download.jetbrains.com/resharper/dotUltimate.$RESHARPER_CLI_VERSION/JetBrains.ReSharper.CommandLineTools.$RESHARPER_CLI_VERSION.zip" \
-  && unzip resharper.zip \
+  && unzip -q resharper.zip \
   && rm resharper.zip
 ENV PATH="$/resharper:${PATH}"
 
