@@ -5,10 +5,12 @@ COPY . .
 RUN CGO_ENABLED=0 go build -ldflags="-s -w"
 RUN ls -lh
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0
+FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine
 ENV RESHARPER_CLI_VERSION=2020.3.1
 
 RUN mkdir -p /usr/local/share/dotnet/sdk/NuGetFallbackFolder
+
+RUN apk add unzip
 
 WORKDIR /resharper
 RUN \
