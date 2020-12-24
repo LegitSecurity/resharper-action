@@ -26,9 +26,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      
+
       - name: resharper
-        uses: glassechidna/resharper-action@master
+        uses: LegitSecurity/resharper-action@v1
         with:
           solution: HelloWorld.sln
 ```

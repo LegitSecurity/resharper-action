@@ -3,13 +3,10 @@ description: Turn Resharper code inspections into GitHub PR annotations
 inputs:
   solution:
     description: Path to an .sln file
-    required: false
-  report:
-    description: Path to an .xml file of a pre-created report
-    required: false
+    required: true
 runs:
   using: docker
-  image: docker://glassechidna/resharper-action
+  image: ghcr.io/legitsecurity/resharper-action
   args:
     - sh
     - -c
