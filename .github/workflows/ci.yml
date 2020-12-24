@@ -34,14 +34,14 @@ jobs:
       uses: docker/build-push-action@v2
       id: ttt
       with:
-        push: false
+        tags: legitsecurity/resharper-action:latest
         # cache-from: type=local,src=/tmp/.buildx-cache
         # cache-to: type=local,dest=/tmp/.buildx-cache
 
     - name: test
       run: |
         docker images
-        echo "Something: ${{steps.ttt.outputs.digest}}"
+        echo "Something: ${{steps.ttt.outputs.digest}}   ${{github.repository}}"
 
     - name: get sample
       run: git clone https://github.com/aidansteele/demo-serverless-aspnetcore.git
