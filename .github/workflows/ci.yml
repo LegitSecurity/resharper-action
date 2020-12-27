@@ -39,9 +39,11 @@ jobs:
         cache-to: type=local,dest=/tmp/.buildx-cache
 
     - name: get sample
+      if: github.event_name != 'push'
       run: git clone https://github.com/aidansteele/demo-serverless-aspnetcore.git
 
     - name: run it
+      if: github.event_name != 'push'
       uses: ./
       with:
         solution: demo-serverless-aspnetcore/HelloWorld.sln
