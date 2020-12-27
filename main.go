@@ -102,14 +102,21 @@ func printOutput(w io.Writer, report Report) {
 		typeMap[issueType.Id] = issueType
 	}
 
+	var fail = 0
 	for _, project := range report.Issues {
 		for _, issue := range project.Issues {
 			issueType := typeMap[issue.TypeId]
 			level := severityToLevel(issueType.Severity)
 			column := strings.Split(issue.Offset, "-")[0]
 			file := strings.ReplaceAll(issue.File, `\`, "/")
+			if level == MessageLevelError {
+				fail = 1
+			}
 			Message(w, level, file, issue.Line, column, issue.Message)
 		}
+	}
+	if fail == 1 {
+		os.Exit(1)
 	}
 }
 

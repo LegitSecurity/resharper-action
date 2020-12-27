@@ -9,7 +9,7 @@ inputs:
     required: false
 runs:
   using: docker
-  image: docker://glassechidna/resharper-action
+  image: ghcr.io/legitsecurity/resharper-action
   args:
     - sh
     - -c
